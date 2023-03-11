@@ -1,9 +1,66 @@
-.weather__container {
-    position: relative;
-    width: 400px;
-    height: 105px;
+body {
+    background-color: var(--body-background);
 }
 
-.not__found {
-    display: none;
+.weather__container {
+    position: relative;
+    height: 105px;
+    padding: 28px 32px;
+    overflow: hidden;
+    border-radius: 18px;
+    background-color: var(--weather-container-background);
+    transition: 0.6s ease-in-out;
+}
+
+.search__box {
+    width: 100%;
+    height: min-content;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.enter__location {
+    color: var(--input-search);
+    width: 80%;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    display: flex;
+    text-align: center;
+}
+
+.search__box ::placeholder {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--input-search);
+    text-transform: capitalize;
+}
+
+.search__box button {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    color: var(--search-box-btn);
+    background-color: var(--search-box-background);
+    border-radius: 50%;
+    font-size: 14px;
+    transition: 0.4 ease;
+    border: none;
+}
+
+.search__box button:hover {
+    color: var(--weather-container-background);
+    background: var(--body-background);
+}
+
+.search__box i{
+    position: absolute;
+    color: var(--search-box-btn);
+    font-size: 28px;
+    padding: 8px 0 0 5px;
+}
+
+.weather__box {
+    text-align: center;
 }

@@ -8,6 +8,11 @@
 
 :root {
     scroll-behavior: smooth;
+    --body-background: rgb(69, 21, 148);
+    --weather-container-background: #f5eded;
+    --input-search:  rgb(30, 6, 55);
+    --search-box-btn: #27164f;
+    --search-box-background: #e7dfff;
 }
 
 .container {
@@ -16,7 +21,7 @@
 }
 
 body {
-    font-family: 'Itim';
+    font-family: 'Itim', cursive;
     height: 100vh;
     display: flex;
     align-items: center;

@@ -14,3 +14,11 @@
     max-width: 1200px;
     margin: auto;
 }
+
+body {
+    font-family: 'Itim';
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

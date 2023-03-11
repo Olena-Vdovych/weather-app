@@ -1,0 +1,9 @@
+.weather__container {
+    position: relative;
+    width: 400px;
+    height: 105px;
+}
+
+.not__found {
+    display: none;
+}

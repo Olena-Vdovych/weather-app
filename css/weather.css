@@ -138,7 +138,6 @@ body {
     width: 100%;
     text-align: center;
     margin-top: 50px;
-    scale: 0;
     opacity: 0;
     display: none;
 }
@@ -155,6 +154,5 @@ body {
 }
 
 .weather__box, .weather__details {
-    scale: 0;
     opacity: 0;
 }

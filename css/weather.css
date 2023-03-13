@@ -4,7 +4,7 @@ body {
 
 .weather__container {
     position: relative;
-    height: 605px;
+    height: 105px;
     padding: 28px 32px;
     overflow: hidden;
     border-radius: 18px;
@@ -137,7 +137,7 @@ body {
 .not__found {
     width: 100%;
     text-align: center;
-    margin-top: 50px;
+    /* margin-top: 50px; */
     opacity: 0;
     display: none;
 }
@@ -155,4 +155,16 @@ body {
 
 .weather__box, .weather__details {
     opacity: 0;
+}
+
+.fadeIn {
+    animation: 0.5s fadeIn forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeIn {
+    to {
+        scale: 1;
+        opacity: 1;
+    }
 }

@@ -70,7 +70,7 @@
                         break;
 
                     default:
-                        image.src = '';
+                        image.src = ' ';
                 }
 
                 temperature.innerHTML = `${parseInt(json.main.temp - 273.15)}<span>°C<span>`;

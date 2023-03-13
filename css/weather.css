@@ -164,7 +164,6 @@ body {
 
 @keyframes fadeIn {
     to {
-        scale: 1;
         opacity: 1;
     }
 }

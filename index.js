@@ -73,7 +73,6 @@
                         image.src = '';
                 }
 
-
                 temperature.innerHTML = `${parseInt(json.main.temp - 273.15)}<span>°C<span>`;
                 description.innerHTML = `${json.weather[0].description}`;
                 humidity.innerHTML = `${json.main.humidity}%`;

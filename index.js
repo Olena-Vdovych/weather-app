@@ -8,7 +8,7 @@
     search.addEventListener('click', () => {
         const APIKey = 'ddbd6a7a1032dbc81b1c9931adf56fb5';
         const city = document.querySelector('.enter__location').value;
-
+    
         if (city === '')
             return;
 
@@ -42,37 +42,69 @@
                 error.style.display = 'none';
                 error.classList.remove('fadeIn');
 
-                const image = document.querySelector('.weather__img');
                 const temperature = document.querySelector('.temperature');
                 const description = document.querySelector('.description');
                 const humidity = document.querySelector('.humidity');
                 const wind = document.querySelector('.wind');
 
-                switch (json.weather[0].main) {
-                    case 'Clear':
-                        image.src = 'images/clear.png';
-                        break;
+                const timezone = json.timezone;
+                const currentTime = Math.floor(new Date().getTime() / 1000);
+                const sunriseTime = json.sys.sunrise + timezone;
+                const sunsetTime = json.sys.sunset + timezone;
+                let weatherImage = document.querySelector('.weather__img');
 
-                    case 'Clouds':
-                        image.src = 'images/cloud.png';
-                        break;
-
-                    case 'Fog':
-                        image.src = 'images/foggy.png';
-                        break;
-
-                    case 'Rain':
-                        image.src = 'images/rain.png';
-                        break;
-
-                    case 'Snow':
-                        image.src = 'images/snow.png';
-                        break;
-
-                    default:
-                        image.src = ' ';
+                if (currentTime > sunriseTime && currentTime < sunsetTime)  {
+                    switch (json.weather[0].main) {
+                        case 'Clear':
+                            weatherImage.src = 'images/clear.png';
+                            break;
+    
+                        case 'Clouds':
+                            weatherImage.src = 'images/cloud.png';
+                            break;
+    
+                        case 'Fog':
+                            weatherImage.src = 'images/foggy.png';
+                            break;
+    
+                        case 'Rain':
+                            weatherImage.src = 'images/rain.png';
+                            break;
+    
+                        case 'Snow':
+                            weatherImage.src = 'images/snow.png';
+                            break;
+    
+                        default:
+                            weatherImage.src = ' ';
+                    }
+                } else {
+                    switch (json.weather[0].main) {
+                        case 'Clear':
+                            weatherImage.src = 'images/clear-night.png';
+                            break;
+    
+                        case 'Clouds':
+                            weatherImage.src = 'images/cloud-night.png';
+                            break;
+    
+                        case 'Fog':
+                            weatherImage.src = 'images/foggy-night.png';
+                            break;
+    
+                        case 'Rain':
+                            weatherImage.src = 'images/rain-night.png';
+                            break;
+    
+                        case 'Snow':
+                            weatherImage.src = 'images/snow-night.png';
+                            break;
+    
+                        default:
+                            weatherImage.src = ' ';
+                    }
                 }
-
+                
                 temperature.innerHTML = `${parseInt(json.main.temp - 273.15)}<span>°C<span>`;
                 description.innerHTML = `${json.weather[0].description}`;
                 humidity.innerHTML = `${json.main.humidity}%`;

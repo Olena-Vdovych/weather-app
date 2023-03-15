@@ -117,6 +117,21 @@
                 container.style.height = '500px';
             })
     });
+    const changeBackground = () => {
+        const body = document.querySelector('body');
+        const now = new Date();
+        const hour = now.getHours();
 
+        if (hour > 5 && hour < 11) {
+            body.style.backgroundImage = 'url(images/morning.jpg)';
+        } else if (hour >= 11 && hour < 17) {
+            body.style.backgroundImage = 'url(images/day.jpg)';
+        } else if (hour >= 17 && hour < 23 ) {
+            body.style.backgroundImage = 'url(images/sunset.jpg)';
+        } else if (hour >= 23 && hour < 5) {
+            body.style.backgroundImage = 'url(images/night.jpg)';
+        }
+    };
+    changeBackground();
 })();
 

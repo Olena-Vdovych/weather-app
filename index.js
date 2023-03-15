@@ -128,7 +128,7 @@
             body.style.backgroundImage = 'url(images/day.jpg)';
         } else if (hour >= 17 && hour < 23 ) {
             body.style.backgroundImage = 'url(images/sunset.jpg)';
-        } else if (hour >= 23 && hour < 5) {
+        } else {
             body.style.backgroundImage = 'url(images/night.jpg)';
         }
     };

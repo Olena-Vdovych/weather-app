@@ -12,7 +12,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     color: var(--greeting-color);
-    font-size: 3em;
+    font-size: 1.5em;
     font-weight: bold;
     text-shadow: 2px 2px 4px #000000;
 }
@@ -152,7 +152,6 @@ body {
 .not__found {
     width: 100%;
     text-align: center;
-    /* margin-top: 50px; */
     opacity: 0;
     display: none;
 }
@@ -180,5 +179,39 @@ body {
 @keyframes fadeIn {
     to {
         opacity: 1;
+    }
+}
+
+@media (min-width: 468px) {
+    .greeting {
+        font-size: 2em;
+    }
+}
+
+@media (min-width: 450px) {
+    .not__found img {
+        width: 50%;
+    }
+}
+
+@media (min-width: 600px) {
+    .not__found img {
+        width: 40%;
+    }
+}
+
+@media (min-width: 768px) {
+    .greeting {
+        font-size: 3em;
+    }
+
+    .not__found img {
+        width: 30%;
+    }
+}
+
+@media (min-width: 968px) {
+    .not__found img {
+        width: 23%;
     }
 }

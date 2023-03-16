@@ -46,6 +46,8 @@
                 const description = document.querySelector('.description');
                 const humidity = document.querySelector('.humidity');
                 const wind = document.querySelector('.wind');
+                const iconHumidity = document.querySelector('.fa-water');
+                const iconWind = document.querySelector('.fa-wind');
 
                 const timezone = json.timezone;
                 const currentTime = Math.floor(new Date().getTime() / 1000);
@@ -107,8 +109,27 @@
                 
                 temperature.innerHTML = `${parseInt(json.main.temp - 273.15)}<span>°C<span>`;
                 description.innerHTML = `${json.weather[0].description}`;
-                humidity.innerHTML = `${json.main.humidity}%`;
+                humidity.innerHTML = `${(json.main.humidity)}%`;
                 wind.innerHTML = `${parseInt(json.wind.speed)}km/h`;
+                
+                if (json.main.humidity >= 60) {
+                    iconHumidity.src = 'icons/high-humidity.png';
+                } else if (json.main.humidity >= 30 && json.main.humidity < 60) {
+                    iconHumidity.src = 'icons/medium-humidity.png';
+                } else {
+                    iconHumidity.src = 'icons/low-humidity.png';
+                }
+
+                if (json.wind.speed >= 40) {
+                    iconWind.src = 'icons/high-wind.png';
+                } else if (json.wind.speed >=20 && json.wind.speed < 40) {
+                    iconWind.src = 'icons/medium-wind.png';
+                } else {
+                    iconWind.src = 'icons/low-wind.png';
+                }
+
+                iconHumidity.style.display = 'inline';
+                iconWind.style.display = 'inline';
 
                 weatherBox.style.display = '';
                 weatherDetails.style.display = '';

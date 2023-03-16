@@ -6,6 +6,17 @@ body {
     background-size: cover;
 }
 
+.greeting {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--greeting-color);
+    font-size: 3em;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+}
+
 .weather__container {
     position: relative;
     height: 105px;

@@ -43,6 +43,8 @@ body {
     text-transform: uppercase;
     display: flex;
     text-align: center;
+    border: none;
+    border-radius: 10px;
 }
 
 .search__box ::placeholder {
@@ -123,6 +125,10 @@ body {
 .humidity {
     padding-left: 20px;
     justify-content: flex-start;
+}
+
+.humidity__img, .wind__img {
+    width: 30px;
 }
 
 .wind {

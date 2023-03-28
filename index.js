@@ -21,6 +21,7 @@
             })
             .then(json => {
                 // обробка даних про погоду
+                
             })
             .catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
@@ -46,8 +47,45 @@
                 const description = document.querySelector('.description');
                 const humidity = document.querySelector('.humidity');
                 const wind = document.querySelector('.wind');
-                const iconHumidity = document.querySelector('.fa-water');
-                const iconWind = document.querySelector('.fa-wind');
+                const iconHumidity = document.querySelector('.humidity__img');
+                const iconWind = document.querySelector('.wind__img');
+
+                const humidityImages = {
+                    high: 'icons/high-humidity.png',
+                    medium: 'icons/medium-humidity.png',
+                    low: 'icons/low-humidity.png',
+                }
+
+                if (json.main.humidity >= 60) {
+                        iconHumidity.src = humidityImages.high;
+                        iconHumidity.alt = 'High humidity';
+                    } else if (json.main.humidity >= 30 && json.main.humidity < 60) {
+                        iconHumidity.src = humidityImages.medium;
+                        iconHumidity.alt = 'Medium humidity';
+                    } else {
+                        iconHumidity.src = humidityImages.low;
+                        iconHumidity.alt = 'Low humidity';
+                    }
+    
+                const windImages = {
+                    high: 'icons/high-wind.png',
+                    medium: 'icons/medium-wind.png',
+                    low: 'icons/low-wind.png',
+                };
+
+                if (json.wind.speed >= 40) {
+                    iconWind.src = windImages.high;
+                    iconWind.alt = 'High wind';
+                } else if (json.wind.speed >= 20 && json.wind.speed < 40) {
+                    iconWind.src = windImages.medium;
+                    iconWind.alt = 'Medium wind';
+                } else {
+                    iconWind.src = windImages.low;
+                    iconWind.alt = 'Low wind';
+                }
+
+                wind.innerHTML = `${iconWind.outerHTML} ${parseInt(json.wind.speed)} km/h`;
+                humidity.innerHTML = `${iconHumidity.outerHTML} ${json.main.humidity}%`;
 
                 const timezone = json.timezone;
                 const currentTime = Math.floor(new Date().getTime() / 1000);
@@ -109,24 +147,6 @@
                 
                 temperature.innerHTML = `${parseInt(json.main.temp - 273.15)}<span>°C<span>`;
                 description.innerHTML = `${json.weather[0].description}`;
-                humidity.innerHTML = `${(json.main.humidity)}%`;
-                wind.innerHTML = `${parseInt(json.wind.speed)}km/h`;
-                
-                if (json.main.humidity >= 60) {
-                    iconHumidity.src = 'icons/high-humidity.png';
-                } else if (json.main.humidity >= 30 && json.main.humidity < 60) {
-                    iconHumidity.src = 'icons/medium-humidity.png';
-                } else {
-                    iconHumidity.src = 'icons/low-humidity.png';
-                }
-
-                if (json.wind.speed >= 40) {
-                    iconWind.src = 'icons/high-wind.png';
-                } else if (json.wind.speed >=20 && json.wind.speed < 40) {
-                    iconWind.src = 'icons/medium-wind.png';
-                } else {
-                    iconWind.src = 'icons/low-wind.png';
-                }
 
                 iconHumidity.style.display = 'inline';
                 iconWind.style.display = 'inline';

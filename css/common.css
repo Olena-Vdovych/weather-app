@@ -9,7 +9,7 @@
 :root {
     scroll-behavior: smooth;
     --body-background: rgb(69, 21, 148);
-    --weather-container-background: #f5eded;
+    --weather-container-background: #f5eded9b;
     --input-search:  rgb(30, 6, 55);
     --search-box-btn: #27164f;
     --search-box-background: #e7dfff;
